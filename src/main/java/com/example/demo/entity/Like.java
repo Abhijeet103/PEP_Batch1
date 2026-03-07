@@ -5,36 +5,27 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
+import tools.jackson.databind.annotation.EnumNaming;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+@NoArgsConstructor
+public class Like {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id ;
 
-    @Column(nullable = false)
-    String content ;
-
-    String mediaUrl ;
-
-    // FK by defualt is many to one
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+            @JoinColumn
     User user ;
 
-    @OneToMany(cascade =  CascadeType.ALL)
-    List<Like> likes ;
-
-
-    @OneToMany(cascade = CascadeType.ALL)
-    List<Comment> comments ;
+    @ManyToOne(cascade = CascadeType.ALL)
+            @JoinColumn
+    Post post ;
 
 
     LocalDateTime createdAt ;
@@ -43,5 +34,4 @@ public class Post {
     void prePersist(){
         createdAt = LocalDateTime.now() ;
     }
-
 }

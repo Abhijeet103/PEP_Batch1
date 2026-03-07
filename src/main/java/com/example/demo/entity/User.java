@@ -22,6 +22,8 @@ public class User {
     @Column(unique = true , nullable = false)
     String username ;
 
+    Boolean visible ;
+
     @Column(nullable = false)
     String password;
 
@@ -30,6 +32,12 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL)
     List<Post> posts ;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Comment> comments ;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Like> likes ;
 
     @OneToOne(cascade = CascadeType.ALL , mappedBy = "user")
     UserInfo userInfo;
