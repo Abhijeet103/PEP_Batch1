@@ -1,28 +1,29 @@
 package com.example.demo.service;
 
-
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-// it will contain all the core logic
-
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository ;
+    // we write all our buissness logic
+    private UserRepository userRepository;
 
-    // Autowired is responsible for dependcy injection
-
-    List<User> getAllUsers(){
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    User getUser(long id){
-        return userRepository.findById((int) id).orElseThrow();
+    public User findById(Integer id) {
+        return userRepository.findById(id).get();
+    }
+
+    public User create(User user) {
+        return userRepository.save(user);
     }
 }

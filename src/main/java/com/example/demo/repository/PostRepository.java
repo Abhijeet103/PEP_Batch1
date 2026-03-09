@@ -8,18 +8,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post,Integer> {
 
-    List<Post> findByUserIdOrderByCreatedAtDesc(Long user_id);
 
-//    @Query('select p from post')
-//    List<Post> findfeed(Long userId)
-
-
-    List<Post> findByCommentContainingIgnoreCaseOrderByCreatedAtDesc(String comments);
-
-    List<Post> findByContentContainingIgnoreCaseOrderByCreatedAtDesc(String content);
-
-
-    @Query("select p from Post  p where p.content= like %:content %")
-    List<Post> CustomFunction(String content);
 
 }

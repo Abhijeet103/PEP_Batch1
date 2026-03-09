@@ -11,11 +11,12 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
 
+    @Query("select u from  User u where u.username = :username")
+    List<User> CustomFunction(String username);
 
-    @Query("select u from User u where u.username = :username ")
-    User CustomFunction(String username);
+    User findByUsername(String username);
 
-    User findByEmail(String email);
+
 
 }
 

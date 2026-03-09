@@ -13,8 +13,12 @@ public class test {
 
     void test(){
 
-       userRepository.findById(1) ;
-       userRepository.CustomFunction("abhijeet");
+        userRepository.findById(1);
+        userRepository.CustomFunction("Abhijeet") ;
+
+//        select * from user where id =1
+        // these are inbuilt in jpa
+
     }
 
 
