@@ -12,12 +12,9 @@ public class test {
 
 
     void test(){
-//        userRepository.findAll();
-//        userRepository.findById(1);
-//        userRepository.deleteById(1);
-//        userRepository.deleteAll();
 
-        //userRepository.findByVisible(true);
+       userRepository.findById(1) ;
+       userRepository.CustomFunction("abhijeet");
     }
 
 

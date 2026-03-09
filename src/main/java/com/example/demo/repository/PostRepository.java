@@ -16,4 +16,10 @@ public interface PostRepository extends JpaRepository<Post,Integer> {
 
     List<Post> findByCommentContainingIgnoreCaseOrderByCreatedAtDesc(String comments);
 
+    List<Post> findByContentContainingIgnoreCaseOrderByCreatedAtDesc(String content);
+
+
+    @Query("select p from Post  p where p.content= like %:content %")
+    List<Post> CustomFunction(String content);
+
 }
