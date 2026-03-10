@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
     // we write all our buissness logic
+    @Autowired
     private UserRepository userRepository;
 
     public List<User> findAll() {
