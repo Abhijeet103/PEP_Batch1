@@ -1,17 +1,18 @@
 version : "1"
 
+
 services:
   app :
     build: .
     ports:
-      - "8084:9090"
+      - "8080:9090"
     depends_on:
       - db
 #      - redis
-#      - rabbit_mq
+
 
   db :
-    image: postgres
+    image : postgres
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
@@ -19,14 +20,9 @@ services:
     ports:
       - "5432:5432"
 
-#  redis :
-#    image : redis
-#    ports:
+
 #
-#  rabbit_mq :
-#    image: rabbitmq
-
-
-
+#  redis :
+#    image: redis
 
 
