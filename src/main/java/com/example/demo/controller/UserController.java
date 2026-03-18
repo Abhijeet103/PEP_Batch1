@@ -17,6 +17,12 @@ public class UserController {
        return "Hello User  " + name;
     }
 
+
+    @GetMapping("/test")
+    String test(){
+        return "returning from AWS";
+    }
+
     @GetMapping("/user/{id}")
     String fun1(@PathVariable int id){
 
