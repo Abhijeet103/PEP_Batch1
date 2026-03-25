@@ -319,7 +319,7 @@ public class UserController {
     ResponseEntity<UserRequest> fun2(@RequestBody UserRequest userRequest  , @RequestHeader("Authorization") String token){
         try {
             System.out.println(userRequest);
-            userRequest.setName("Abhijeet");
+            userRequest.setName("Abhijeet kumar");
             return new ResponseEntity<>(userRequest, HttpStatus.OK);
         }
         catch (Exception e){
